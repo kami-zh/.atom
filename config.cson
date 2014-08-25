@@ -5,6 +5,7 @@
   'disabledPackages': [
     'autocomplete'
     'welcome'
+    'feedback'
   ]
 'exception-reporting':
   'userId': '1a44d2a6-223b-b9f5-9929-33680031ed6f'

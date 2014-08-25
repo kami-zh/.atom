@@ -1,5 +1,4 @@
-MarkerView = require './marker-view'
-{EditorView, View, Range} = require 'atom'
+{View, Range} = require 'atom'
 _ = require 'underscore-plus'
 
 module.exports =
@@ -7,21 +6,15 @@ class HighlightedAreaView extends View
   @content: ->
     @div class: 'highlight-selected'
 
-  initialize: (editorView) ->
+  initialize: ->
     @views = []
-    @editorView = editorView
+    atom.workspaceView.on "selection:changed", @handleSelection
 
-  attach: =>
-    @editorView.underlayer.append(this)
-    @subscribe @editorView, "selection:changed", @handleSelection
-    atom.workspaceView.on 'pane:item-removed', @destroy
+  attach: ->
+    atom.workspaceView.prependToBottom(this)
 
   destroy: =>
-    found = false
-    for editor in atom.workspaceView.getEditorViews()
-      found = true if editor.id is @editorView.id
-    return if found
-    atom.workspaceView.off 'pane:item-removed', @destroy
+    atom.workspaceView.off 'selection:changed', @handleSelection
     @unsubscribe()
     @remove()
     @detach()
@@ -32,12 +25,15 @@ class HighlightedAreaView extends View
   handleSelection: =>
     @removeMarkers()
 
-    return unless editor = @getActiveEditor()
+    editor = @getActiveEditor()
+    return unless editor
     return if editor.getSelection().isEmpty()
     return unless @isWordSelected(editor.getSelection())
 
-    text = _.escapeRegExp(editor.getSelectedText())
-    regex = new RegExp("\\W*\\w*\\b", 'gi')
+    @selections = editor.getSelections()
+
+    text = _.escapeRegExp(@selections[0].getText())
+    regex = new RegExp("\\S*\\w*\\b", 'gi')
     result = regex.exec(text)
 
     return unless result?
@@ -45,28 +41,52 @@ class HighlightedAreaView extends View
               result.index isnt 0 or
               result[0] isnt result.input
 
+    regexFlags = 'g'
+    if atom.config.get('highlight-selected.ignoreCase')
+      regexFlags = 'gi'
+
     range =  [[0, 0], editor.getEofBufferPosition()]
 
     @ranges = []
     regexSearch = result[0]
     if atom.config.get('highlight-selected.onlyHighlightWholeWords')
       regexSearch =  "\\b" + regexSearch + "\\b"
-    editor.scanInBufferRange new RegExp(regexSearch, 'g'), range,
-      (result) =>
-        if prefix = result.match[1]
-          result.range = result.range.translate([0, prefix.length], [0, 0])
-        @ranges.push editor.markBufferRange(result.range).getScreenRange()
 
-    for range in @ranges
-      view = new MarkerView(range, this, @editorView)
-      @append view.element
-      @views.push view
+    editor.scanInBufferRange new RegExp(regexSearch, regexFlags), range,
+      (result) =>
+        unless @showHighlightOnSelectedWord(result.range, @selections)
+          marker = editor.markBufferRange(result.range)
+          decoration = editor.decorateMarker(marker,
+            {type: 'highlight', class: @makeClasses()})
+          @views.push marker
+
+  makeClasses: ->
+    className = 'highlight-selected'
+    if atom.config.get('highlight-selected.lightTheme')
+      className += ' light-theme'
+
+    if atom.config.get('highlight-selected.highlightBackground')
+      className += ' background'
+    className
+
+  showHighlightOnSelectedWord: (range, selections) ->
+    return false unless atom.config.get(
+      'highlight-selected.hideHighlightOnSelectedWord')
+    outcome = false
+    for selection in selections
+      selectionRange = selection.getScreenRange()
+      outcome = (range.start.column is selectionRange.start.column) and
+                (range.start.row is selectionRange.start.row) and
+                (range.end.column is selectionRange.end.column) and
+                (range.end.row is selectionRange.end.row)
+      break if outcome
+    outcome
 
   removeMarkers: =>
     return unless @views?
     return if @views.length is 0
     for view in @views
-      view.element.remove()
+      view.destroy()
       view = null
     @views = []
 

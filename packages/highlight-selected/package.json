@@ -1,7 +1,7 @@
 {
   "name": "highlight-selected",
   "main": "./lib/highlight-selected",
-  "version": "0.4.0",
+  "version": "0.6.0",
   "description": "Highlights the current word selected when double clicking",
   "repository": {
     "type": "git",
@@ -9,10 +9,15 @@
   },
   "license": "MIT",
   "engines": {
-    "atom": ">0.50.0"
+    "atom": ">=0.123.0"
   },
   "dependencies": {
     "underscore-plus": "1.x"
+  },
+  "devDependencies": {
+    "coffee-script": "latest",
+    "coffeelint": "latest",
+    "coffeelint-jasmine": "latest"
   },
   "readme": "# Highlight Selected\n\nDouble click on a word to highlight it throughout the open file.\n\nThis is something hacky I've put together as I missed the functionality that Sublime gave. As such, it's doesn't work 100% but is good enough to start!\n\nSome code and has been take from Atom's find and replace package ([link](https://github.com/atom/find-and-replace))\n\nPlease log any issues and pull requests are more than welcome!\n\n![Gif in action](http://i.imgur.com/C5FnzzQ.gif)\n\n# Issues and Todo\n\n- Some double click events are not triggered\n- Refactor and tidy up the code\n- Add specs to test it\n",
   "readmeFilename": "README.md",
@@ -20,10 +25,10 @@
     "url": "https://github.com/richrace/highlight-selected/issues"
   },
   "homepage": "https://github.com/richrace/highlight-selected",
-  "_id": "highlight-selected@0.4.0",
+  "_id": "highlight-selected@0.6.0",
   "dist": {
-    "shasum": "7b6f637fe689791d6b12903e63739d83cd6fb621"
+    "shasum": "816415f397fc2295c2a98aa9b76859a9bd2ff0b9"
   },
-  "_resolved": "/var/folders/73/gsmf0ff92h7bzv3mxc27tx1w0000gn/T/d-114616-6349-10zjwww/package.tgz",
-  "_from": "/var/folders/73/gsmf0ff92h7bzv3mxc27tx1w0000gn/T/d-114616-6349-10zjwww/package.tgz"
+  "_resolved": "/var/folders/73/gsmf0ff92h7bzv3mxc27tx1w0000gn/T/d-114725-76503-10qdagi/package.tgz",
+  "_from": "/var/folders/73/gsmf0ff92h7bzv3mxc27tx1w0000gn/T/d-114725-76503-10qdagi/package.tgz"
 }
