@@ -17,3 +17,9 @@
   'userId': '5fc3849e4052ae4eae91b35fe942d9213e9c049d'
 'recent-files':
   'updated': false
+'atom-lint':
+  'ignoredNames': [
+    'tmp/**'
+  ]
+  'rubocop':
+    'path': '/Users/hiroki/.rbenv/shims/rubocop'
