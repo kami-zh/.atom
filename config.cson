@@ -15,11 +15,11 @@
   'showOnStartup': false
 'metrics':
   'userId': '5fc3849e4052ae4eae91b35fe942d9213e9c049d'
-'recent-files':
-  'updated': false
-'atom-lint':
-  'ignoredNames': [
-    'tmp/**'
-  ]
-  'rubocop':
-    'path': '/Users/hiroki/.rbenv/shims/rubocop'
+'linter':
+  'lintOnChange': false
+'linter-rubocop':
+  'rubocopExecutablePath': '/Users/hiroki/.rbenv/shims/rubocop'
+'linter-scss-lint':
+  'scssLintExecutablePath': '/Users/hiroki/.rbenv/shims/scss-lint'
+'linter-coffeelint':
+  'coffeelintExecutablePath': '/usr/local/bin/coffeelint'
