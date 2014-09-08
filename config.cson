@@ -1,6 +1,7 @@
 'editor':
   'fontFamily': 'menlo'
   'fontSize': 11
+  'invisibles': {}
 'core':
   'disabledPackages': [
     'autocomplete'
