@@ -30,6 +30,7 @@ The idea is to stop the linter plugins war, by providing a top level API for lin
 - [linter-shellcheck](https://atom.io/packages/linter-shellcheck), for Bash, using `shellcheck`
 - [linter-scalac](https://atom.io/packages/linter-scalac), for Scala, using `scalac`
 - [linter-clang](https://atom.io/packages/linter-clang), for C / C++, using `clang`
+- [linter-cpplint](https://atom.io/packages/linter-cpplint), for C++, using `cpplint`
 - [linter-ruby](https://atom.io/packages/linter-ruby), for Ruby, using `ruby -wc`
 - [linter-lua](https://atom.io/packages/linter-lua), for Lua, using `luac -p`
 - [linter-clojure](https://atom.io/packages/linter-clojure), for Clojure, using `clojure`
@@ -41,6 +42,8 @@ The idea is to stop the linter plugins war, by providing a top level API for lin
 - [linter-htmlhint](https://atom.io/packages/linter-htmlhint), for html, using `htmlhint`
 - [linter-squirrel](https://atom.io/packages/linter-squirrel), for squirrel, using `squirrel-compiler`
 - [linter-codscriptizer](https://atom.io/packages/linter-codscriptizer), for CoDScript, using `codscriptizer -l`
+- [linter-harbour](https://atom.io/packages/linter-harbour), for Harbour, using `harbour`
+- [linter-rust](https://atom.io/packages/linter-rust), for Rust, using `rustc`
 
 
 ## Features
