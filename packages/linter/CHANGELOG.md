@@ -1,3 +1,23 @@
+# v0.7.1
+
+### Bug fixes
+* Fix ENOTEMPTY error (See [#218][218])
+* Minor tweaks to inline view (See [#215][215])
+
+[215]: https://github.com/AtomLinter/Linter/pull/215
+[218]: https://github.com/AtomLinter/Linter/issue/218
+
+# v0.7.0
+
+### New features
+* Option to display linter messages inline with code (See [#195][195])
+
+### Bug fixes
+* Clean up temporary directories (See [#212][212])
+
+[195]: https://github.com/AtomLinter/Linter/pull/195
+[212]: https://github.com/AtomLinter/Linter/issue/212
+
 # v0.6.1
 
 ### Bug fixes

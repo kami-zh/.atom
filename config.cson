@@ -1,12 +1,15 @@
 'editor':
   'fontFamily': 'menlo'
-  'fontSize': 11
   'invisibles': {}
+  'fontSize': 11
 'core':
   'disabledPackages': [
     'welcome'
     'feedback'
     'autocomplete'
+    'linter-coffeelint'
+    'linter-scss-lint'
+    'linter-rubocop'
   ]
 'exception-reporting':
   'userId': '1a44d2a6-223b-b9f5-9929-33680031ed6f'
