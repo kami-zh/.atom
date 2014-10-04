@@ -48,7 +48,7 @@ class Linter
 
   # Public: Construct a linter passing it's base editor
   constructor: (@editor) ->
-    @cwd = path.dirname(editor.getUri())
+    @cwd = path.dirname(@editor.getUri())
 
   # Private: Exists mostly so we can use statSync without slowing down linting.
   # TODO: Do this at constructor time?
@@ -145,7 +145,8 @@ class Linter
     messages = []
     regex = XRegExp @regex, @regexFlags
     XRegExp.forEach message, regex, (match, i) =>
-      messages.push(m) if m = @createMessage(match)
+      msg = @createMessage match
+      messages.push msg if msg.range?
     , this
     callback messages
 
@@ -227,12 +228,11 @@ class Linter
       Math.max 0, parseInt(x) - 1
 
     rowStart = decrementParse match.lineStart ? match.line
-    rowEnd = decrementParse match.lineEnd ? match.line
+    rowEnd = decrementParse match.lineEnd ? match.line ? rowStart
 
     # if this message purports to be from beyond the maximum line count,
     # ignore it
-    maxRow = rowEnd ? rowStart
-    if maxRow > @editor.getLineCount()
+    if rowEnd >= @editor.getLineCount()
       log "ignoring #{match} - it's longer than the buffer"
       return null
 

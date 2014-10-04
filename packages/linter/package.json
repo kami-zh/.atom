@@ -1,7 +1,7 @@
 {
   "name": "linter",
   "main": "./lib/init",
-  "version": "0.7.1",
+  "version": "0.7.3",
   "private": true,
   "description": "Validates your code using linters.",
   "repository": {
@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "chai": "^1.9.1",
-    "copy-paste": "^0.2.2",
     "emissary": "^1.0.0",
     "jshint": "^2.4.4",
     "lodash": "^2.4.1",
@@ -46,10 +45,10 @@
     "url": "https://github.com/AtomLinter/Linter/issues"
   },
   "homepage": "https://github.com/AtomLinter/Linter",
-  "_id": "linter@0.7.1",
+  "_id": "linter@0.7.3",
   "dist": {
-    "shasum": "21758e45f0dfca38d78300888681ad5956ffca30"
+    "shasum": "f25dcfbf6ce32f541f02f4875cc0ec560395eb84"
   },
-  "_resolved": "/private/var/folders/73/gsmf0ff92h7bzv3mxc27tx1w0000gn/T/d-114823-5729-989hcn/package.tgz",
-  "_from": "/private/var/folders/73/gsmf0ff92h7bzv3mxc27tx1w0000gn/T/d-114823-5729-989hcn/package.tgz"
+  "_resolved": "/private/var/folders/73/gsmf0ff92h7bzv3mxc27tx1w0000gn/T/d-114827-24450-46633e/package.tgz",
+  "_from": "/private/var/folders/73/gsmf0ff92h7bzv3mxc27tx1w0000gn/T/d-114827-24450-46633e/package.tgz"
 }

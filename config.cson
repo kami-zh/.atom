@@ -1,7 +1,7 @@
 'editor':
   'fontFamily': 'menlo'
-  'invisibles': {}
   'fontSize': 11
+  'invisibles': {}
 'core':
   'disabledPackages': [
     'welcome'
@@ -10,6 +10,10 @@
     'linter-coffeelint'
     'linter-scss-lint'
     'linter-rubocop'
+    'autocomplete-plus'
+    'autocomplete-snippets'
+    'autocomplete-paths'
+    'background-tips'
   ]
 'exception-reporting':
   'userId': '1a44d2a6-223b-b9f5-9929-33680031ed6f'
@@ -27,4 +31,3 @@
   'scssLintExecutablePath': '/Users/hiroki/.rbenv/shims/scss-lint'
 'linter-coffeelint':
   'coffeelintExecutablePath': '/usr/local/bin/coffeelint'
-'tree-view': {}
