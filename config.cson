@@ -1,33 +1,34 @@
-'editor':
-  'fontFamily': 'menlo'
-  'fontSize': 11
-  'invisibles': {}
-'core':
-  'disabledPackages': [
-    'welcome'
-    'feedback'
-    'autocomplete'
-    'linter-coffeelint'
-    'linter-scss-lint'
-    'linter-rubocop'
-    'autocomplete-plus'
-    'autocomplete-snippets'
-    'autocomplete-paths'
-    'background-tips'
-  ]
-'exception-reporting':
-  'userId': '1a44d2a6-223b-b9f5-9929-33680031ed6f'
-'release-notes':
-  'viewedVersion': '0.95.0'
-'welcome':
-  'showOnStartup': false
-'metrics':
-  'userId': '5fc3849e4052ae4eae91b35fe942d9213e9c049d'
-'linter':
-  'lintOnChange': false
-'linter-rubocop':
-  'rubocopExecutablePath': '/Users/hiroki/.rbenv/shims/rubocop'
-'linter-scss-lint':
-  'scssLintExecutablePath': '/Users/hiroki/.rbenv/shims/scss-lint'
-'linter-coffeelint':
-  'coffeelintExecutablePath': '/usr/local/bin/coffeelint'
+'global':
+  'editor':
+    'fontFamily': 'menlo'
+    'fontSize': 11
+    'invisibles': {}
+  'core':
+    'disabledPackages': [
+      'welcome'
+      'feedback'
+      'linter-coffeelint'
+      'linter-scss-lint'
+      'linter-rubocop'
+      'background-tips'
+    ]
+  'exception-reporting':
+    'userId': '1a44d2a6-223b-b9f5-9929-33680031ed6f'
+  'release-notes':
+    'viewedVersion': '0.95.0'
+  'welcome':
+    'showOnStartup': false
+  'metrics':
+    'userId': '5fc3849e4052ae4eae91b35fe942d9213e9c049d'
+  'linter':
+    'lintOnChange': false
+  'linter-rubocop':
+    'rubocopExecutablePath': '/Users/hiroki/.rbenv/shims/rubocop'
+  'linter-scss-lint':
+    'scssLintExecutablePath': '/Users/hiroki/.rbenv/shims/scss-lint'
+  'linter-coffeelint':
+    'coffeelintExecutablePath': '/usr/local/bin/coffeelint'
+  'highlight-selected':
+    'highlightBackground': true
+  'file-icons':
+    'coloured': false
