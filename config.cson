@@ -1,15 +1,13 @@
 'global':
   'editor':
-    'fontFamily': 'menlo'
-    'fontSize': 11
     'invisibles': {}
+    'showIndentGuide': true
+    'fontSize': 11
+    'lineHeight': 1.4
   'core':
     'disabledPackages': [
       'welcome'
       'feedback'
-      'linter-coffeelint'
-      'linter-scss-lint'
-      'linter-rubocop'
       'background-tips'
     ]
   'exception-reporting':
@@ -20,14 +18,6 @@
     'showOnStartup': false
   'metrics':
     'userId': '5fc3849e4052ae4eae91b35fe942d9213e9c049d'
-  'linter':
-    'lintOnChange': false
-  'linter-rubocop':
-    'rubocopExecutablePath': '/Users/hiroki/.rbenv/shims/rubocop'
-  'linter-scss-lint':
-    'scssLintExecutablePath': '/Users/hiroki/.rbenv/shims/scss-lint'
-  'linter-coffeelint':
-    'coffeelintExecutablePath': '/usr/local/bin/coffeelint'
   'highlight-selected':
     'highlightBackground': true
   'file-icons':
