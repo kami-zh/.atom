@@ -1,9 +1,9 @@
 'global':
   'editor':
-    'invisibles': {}
     'showIndentGuide': true
-    'fontSize': 11
     'lineHeight': 1.4
+    'fontSize': 11
+    'invisibles': {}
   'core':
     'disabledPackages': [
       'welcome'
