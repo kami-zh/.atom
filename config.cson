@@ -1,8 +1,8 @@
 'global':
   'editor':
     'showIndentGuide': true
-    'lineHeight': 1.4
     'fontSize': 11
+    'fontFamily': 'Menlo'
     'invisibles': {}
   'core':
     'disabledPackages': [
