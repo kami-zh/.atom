@@ -1,24 +1,25 @@
-'global':
-  'editor':
-    'showIndentGuide': true
-    'fontSize': 11
-    'fontFamily': 'Menlo'
-    'invisibles': {}
-  'core':
-    'disabledPackages': [
-      'welcome'
-      'feedback'
-      'background-tips'
+"*":
+  editor:
+    fontFamily: "Menlo"
+    fontSize: 11
+    showIndentGuide: true
+    preferredLineLength: 120
+    invisibles: {}
+  core:
+    disabledPackages: [
+      "welcome"
+      "feedback"
+      "background-tips"
     ]
-  'exception-reporting':
-    'userId': '1a44d2a6-223b-b9f5-9929-33680031ed6f'
-  'release-notes':
-    'viewedVersion': '0.95.0'
-  'welcome':
-    'showOnStartup': false
-  'metrics':
-    'userId': '5fc3849e4052ae4eae91b35fe942d9213e9c049d'
-  'highlight-selected':
-    'highlightBackground': true
-  'file-icons':
-    'coloured': false
+  "exception-reporting":
+    userId: "1a44d2a6-223b-b9f5-9929-33680031ed6f"
+  "release-notes":
+    viewedVersion: "0.95.0"
+  welcome:
+    showOnStartup: false
+  metrics:
+    userId: "5fc3849e4052ae4eae91b35fe942d9213e9c049d"
+  "highlight-selected":
+    highlightBackground: true
+  "file-icons":
+    coloured: false
