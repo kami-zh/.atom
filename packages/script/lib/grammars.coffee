@@ -73,8 +73,13 @@ module.exports =
 
   'F#':
     "File Based":
-      command: "fsharpi"
+      command: if GrammarUtils.OperatingSystem.isWindows() then "fsi" else "fsharpi"
       args: (context) -> ['--exec', context.filepath]
+
+  Forth:
+    "File Based":
+      command: "gforth"
+      args: (context) -> [context.filepath]
 
   Gherkin:
     "File Based":
@@ -144,6 +149,11 @@ module.exports =
     "File Based":
       command: "sbcl"
       args: (context) -> ['--noinform', '--script', context.filepath]
+
+  'Literate Haskell':
+    "File Based":
+      command: "runhaskell"
+      args: (context) -> [context.filepath]
 
   LiveScript:
     "Selection Based":
@@ -224,6 +234,14 @@ module.exports =
   R:
     "File Based":
       command: "Rscript"
+      args: (context) -> [context.filepath]
+
+  Racket:
+    "Selection Based":
+      command: "racket"
+      args: (context) -> ['-e', context.getCode()]
+    "File Based":
+      command: "racket"
       args: (context) -> [context.filepath]
 
   RSpec:

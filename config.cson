@@ -1,10 +1,10 @@
 "*":
   editor:
-    fontFamily: "Menlo"
-    fontSize: 11
     showIndentGuide: true
     preferredLineLength: 120
     invisibles: {}
+    fontSize: 11
+    fontFamily: "Menlo"
   core:
     disabledPackages: [
       "welcome"
@@ -20,6 +20,7 @@
   metrics:
     userId: "5fc3849e4052ae4eae91b35fe942d9213e9c049d"
   "highlight-selected":
-    highlightBackground: true
+    hideHighlightOnSelectedWord: true
   "file-icons":
     coloured: false
+  "autocomplete-plus": {}

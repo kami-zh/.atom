@@ -1,7 +1,7 @@
 {
   "name": "language-gherkin",
-  "version": "0.3.0",
-  "description": "Gherkin language support in Atom",
+  "version": "1.0.1",
+  "description": "Gherkin language support for Atom",
   "repository": {
     "type": "git",
     "url": "https://github.com/gigapixel/atom-language-gherkin"
@@ -11,16 +11,24 @@
     "atom": ">=0.50.0"
   },
   "dependencies": {},
-  "readme": "Gherkin language support in Atom\n================================\n\nProvide syntax highlight for gherkin language files (.feature) in Atom.\n",
+  "readme": "# Atom Language Gherkin\n\nGherkin Syntax Highlight for Atom Text Editor.\n\nSupport gherkin on following file type:\n* `.feature` file (cucumber, behave, etc.)\n* `.robot` file (robot-framework)\n\n## Example\n\nFeature file.\n\n![feature-syntax ](https://raw.githubusercontent.com/gigapixel/atom-language-gherkin/master/screenshots/feature-syntax.png)\n\nRobot File.\n\n![robot-syntax](https://raw.githubusercontent.com/gigapixel/atom-language-gherkin/master/screenshots/robot-syntax.png)\n\n__NOTE__: Syntax color best match with Atom `One Dark` theme.\n",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/gigapixel/atom-language-gherkin/issues"
   },
   "homepage": "https://github.com/gigapixel/atom-language-gherkin",
-  "_id": "language-gherkin@0.3.0",
-  "dist": {
-    "shasum": "02c6d57b345b9e4544a3240f905308390eaf10de"
-  },
-  "_resolved": "/private/var/folders/73/gsmf0ff92h7bzv3mxc27tx1w0000gn/T/d-114910-61477-11to1v5/package.tgz",
-  "_from": "/private/var/folders/73/gsmf0ff92h7bzv3mxc27tx1w0000gn/T/d-114910-61477-11to1v5/package.tgz"
+  "_id": "language-gherkin@1.0.1",
+  "_shasum": "5349e81edb3a585bf77bf4fc90ac35b863a4588b",
+  "_resolved": "file:../d-115221-11072-185m7rn/package.tgz",
+  "_from": "../d-115221-11072-185m7rn/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
 }

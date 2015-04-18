@@ -1,6 +1,6 @@
 {
   "name": "language-haml",
-  "version": "0.15.0",
+  "version": "0.19.0",
   "private": true,
   "description": "HAML package for Atom",
   "repository": {
@@ -18,12 +18,10 @@
     "url": "https://github.com/cannikin/language-haml/issues"
   },
   "homepage": "https://github.com/cannikin/language-haml",
-  "_id": "language-haml@0.15.0",
-  "dist": {
-    "shasum": "d947c58706d105ac80a1707a3ff8ae2527b9f890"
-  },
-  "_resolved": "/private/var/folders/6k/vm6_rcyj0xb071_jsz2fxpcc0000gn/T/d-115017-17397-1my0li1/package.tgz",
-  "_from": "/private/var/folders/6k/vm6_rcyj0xb071_jsz2fxpcc0000gn/T/d-115017-17397-1my0li1/package.tgz",
+  "_id": "language-haml@0.19.0",
+  "_shasum": "e51878d5cad63a26119663ad5c6e9de976913318",
+  "_resolved": "file:../d-11539-38464-j59lu2/package.tgz",
+  "_from": "../d-11539-38464-j59lu2/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [],
