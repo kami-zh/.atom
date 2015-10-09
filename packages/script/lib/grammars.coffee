@@ -16,10 +16,10 @@ module.exports =
   'Behat Feature':
     "File Based":
       command: "behat"
-      args: (context) -> ['--ansi', context.filepath]
+      args: (context) -> [context.filepath]
     "Line Number Based":
       command: "behat"
-      args: (context) -> ['--ansi', context.fileColonLine()]
+      args: (context) -> [context.fileColonLine()]
 
   Batch:
     "File Based":
@@ -29,13 +29,22 @@ module.exports =
     if GrammarUtils.OperatingSystem.isDarwin()
       "File Based":
         command: "bash"
-        args: (context) -> ['-c', "xcrun clang -fcolor-diagnostics -Wall -include stdio.h " + context.filepath + " -o /tmp/c.out && /tmp/c.out"]
+        args: (context) -> ['-c', "xcrun clang -fcolor-diagnostics -Wall -include stdio.h '" + context.filepath + "' -o /tmp/c.out && /tmp/c.out"]
+    else if GrammarUtils.OperatingSystem.isLinux()
+      "File Based":
+        command: "bash"
+        args: (context) -> ["-c", "cc -Wall -include stdio.h '" + context.filepath + "' -o /tmp/c.out && /tmp/c.out"]
 
   'C++':
     if GrammarUtils.OperatingSystem.isDarwin()
       "File Based":
         command: "bash"
-        args: (context) -> ['-c', "xcrun clang++ -fcolor-diagnostics -Wc++11-extensions -Wall -include stdio.h -include iostream " + context.filepath + " -o /tmp/cpp.out && /tmp/cpp.out"]
+        args: (context) -> ['-c', "xcrun clang++ -fcolor-diagnostics -Wc++11-extensions -Wall -include stdio.h -include iostream '" + context.filepath + "' -o /tmp/cpp.out && /tmp/cpp.out"]
+
+  'C# Script File':
+    "File Based":
+      command: "scriptcs"
+      args: (context) -> ['-script', context.filepath]
 
   CoffeeScript:
     "Selection Based":
@@ -53,10 +62,23 @@ module.exports =
       command: "coffee"
       args: (context) -> [context.filepath]
 
+  Crystal:
+    "Selection Based":
+      command: "crystal"
+      args: (context)  -> ['eval', context.getCode()]
+    "File Based":
+      command: "crystal"
+      args: (context) -> [context.filepath]
+
   D:
     "File Based":
       command: "rdmd"
       args: (context) -> [context.filepath]
+
+  DOT:
+    "File Based":
+      command: "dot"
+      args: (context) -> ['-Tpng', context.filepath, '-o', context.filepath + '.png']
 
   Elixir:
     "Selection Based":
@@ -118,12 +140,28 @@ module.exports =
       command: "iced"
       args: (context) -> [context.filepath]
 
+  Java:
+    "File Based":
+      command: "bash"
+      args: (context) ->
+        className = context.filename.replace /\.java$/, ""
+        args = ['-c', "javac -d /tmp '#{context.filepath}' && java -cp /tmp #{className}"]
+        return args
+
   JavaScript:
     "Selection Based":
       command: "node"
       args: (context)  -> ['-e', context.getCode()]
     "File Based":
       command: "node"
+      args: (context) -> [context.filepath]
+
+  'Babel ES6 JavaScript':
+    "Selection Based":
+      command: "babel-node"
+      args: (context) -> ['-e', context.getCode()]
+    "File Based":
+      command: "babel-node"
       args: (context) -> [context.filepath]
 
   Julia:
@@ -133,6 +171,27 @@ module.exports =
     "File Based":
       command: "julia"
       args: (context) -> [context.filepath]
+
+  Kotlin:
+    "Selection Based":
+      command: "bash"
+      args: (context) ->
+        code = context.getCode(true)
+        tmpFile = GrammarUtils.createTempFileWithCode(code, ".kt")
+        jarName = tmpFile.replace /\.kt$/, ".jar"
+        args = ['-c', "kotlinc #{tmpFile} -include-runtime -d #{jarName} && java -jar #{jarName}"]
+        return args
+    "File Based":
+      command: "bash"
+      args: (context) ->
+        jarName = context.filename.replace /\.kt$/, ".jar"
+        args = ['-c', "kotlinc #{context.filepath} -include-runtime -d /tmp/#{jarName} && java -jar /tmp/#{jarName}"]
+        return args
+
+  LaTeX:
+    "File Based":
+      command: "latexmk"
+      args: (context) -> ['-pv', '-quiet', '-pdf', '-shell-escape', context.filepath]
 
   LilyPond:
     "File Based":
@@ -166,7 +225,10 @@ module.exports =
   Lua:
     "Selection Based":
       command: "lua"
-      args: (context)  -> ['-e', context.getCode()]
+      args: (context) ->
+        code = context.getCode(true)
+        tmpFile = GrammarUtils.createTempFileWithCode(code)
+        [tmpFile]
     "File Based":
       command: "lua"
       args: (context) -> [context.filepath]
@@ -179,12 +241,39 @@ module.exports =
       command: "moon"
       args: (context) -> [context.filepath]
 
+  'mongoDB (JavaScript)':
+    "Selection Based":
+      command: "mongo"
+      args: (context) -> ['--eval', context.getCode()]
+    "File Based":
+      command:  "mongo"
+      args: (context) -> [context.filepath]
+
+  NCL:
+    "Selection Based":
+      command: "ncl"
+      args: (context) ->
+        code = context.getCode(true)
+        code = code + """
+
+        exit"""
+        tmpFile = GrammarUtils.createTempFileWithCode(code)
+        [tmpFile]
+    "File Based":
+      command: "ncl"
+      args: (context) -> [context.filepath]
+
   newLISP:
     "Selection Based":
       command: "newlisp"
       args: (context) -> ['-e', context.getCode()]
     "File Based":
       command: "newlisp"
+      args: (context) -> [context.filepath]
+
+  NSIS:
+    "File Based":
+      command: "makensis"
       args: (context) -> [context.filepath]
 
   'Objective-C':
@@ -198,6 +287,16 @@ module.exports =
       "File Based":
         command: "bash"
         args: (context) -> ['-c', "xcrun clang++ -fcolor-diagnostics -Wc++11-extensions -Wall -include stdio.h -include iostream -framework Cocoa " + context.filepath + " -o /tmp/objc-cpp.out && /tmp/objc-cpp.out"]
+
+  ocaml:
+    "File Based":
+      command: "ocaml"
+      args: (context) -> [context.filepath]
+
+  'Pandoc Markdown':
+    "File Based":
+      command: "panzer"
+      args: (context) -> [context.filepath, "--output=" + context.filepath + ".pdf"]
 
   PHP:
     "Selection Based":
@@ -216,6 +315,14 @@ module.exports =
       args: (context)  -> ['-e', context.getCode()]
     "File Based":
       command: "perl"
+      args: (context) -> [context.filepath]
+
+  "Perl 6":
+    "Selection Based":
+      command: "perl6"
+      args: (context)  -> ['-e', context.getCode()]
+    "File Based":
+      command: "perl6"
       args: (context) -> [context.filepath]
 
   PowerShell:
@@ -243,6 +350,17 @@ module.exports =
     "File Based":
       command: "racket"
       args: (context) -> [context.filepath]
+
+  RANT:
+    "Selection Based":
+      command: "RantConsole.exe"
+      args: (context) ->
+        code = context.getCode(true)
+        tmpFile = GrammarUtils.createTempFileWithCode(code)
+        ['-file', tmpFile]
+    "File Based":
+      command: "RantConsole.exe"
+      args: (context) -> ['-file', context.filepath]
 
   RSpec:
     "Selection Based":
@@ -331,7 +449,28 @@ module.exports =
       command: "sml"
       args: (context) -> [context.filepath]
 
+  Nim:
+    "File Based":
+      command: "nim"
+      args: (context) ->
+        file = GrammarUtils.Nim.findNimProjectFile(context.filepath)
+        ['c', '--colors:off', '--verbosity:0', '--parallelBuild:1',
+          '-r', '"' + file + '"']
+
   Swift:
     "File Based":
       command: "xcrun"
       args: (context) -> ['swift', context.filepath]
+
+  TypeScript:
+    "Selection Based":
+      command: "bash"
+      args: (context) ->
+        code = context.getCode(true)
+        tmpFile = GrammarUtils.createTempFileWithCode(code, ".ts")
+        jsFile = tmpFile.replace /\.ts$/, ".js"
+        args = ['-c', "tsc --out '#{jsFile}' '#{tmpFile}' && node '#{jsFile}'"]
+        return args
+    "File Based":
+      command: "bash"
+      args: (context) -> ['-c', "tsc '#{context.filepath}' --out /tmp/js.out && node /tmp/js.out"]

@@ -13,11 +13,11 @@ module.exports =
   # * `code`    A {String} containing some code
   #
   # Returns the {String} filepath of the new file
-  createTempFileWithCode: (code) ->
+  createTempFileWithCode: (code, extension = "") ->
     try
       fs.mkdirSync(@tempFilesDir) unless fs.existsSync(@tempFilesDir)
 
-      tempFilePath = @tempFilesDir + path.sep + uuid.v1()
+      tempFilePath = @tempFilesDir + path.sep + uuid.v1() + extension
 
       file = fs.openSync(tempFilePath, 'w')
       fs.writeSync(file, code)
@@ -52,3 +52,8 @@ module.exports =
   #
   # Returns an {Object} which assists in creating temp files containing PHP code
   PHP: require './grammar-utils/php'
+
+  # Public: Get the Nim helper object
+  #
+  # Returns an {Object} which assists in selecting the right project file for Nim code
+  Nim: require './grammar-utils/nim'

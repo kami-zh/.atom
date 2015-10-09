@@ -1,10 +1,9 @@
 "*":
   editor:
     showIndentGuide: true
-    preferredLineLength: 120
     invisibles: {}
     fontSize: 11
-    fontFamily: "Menlo"
+    showInvisibles: true
   core:
     disabledPackages: [
       "welcome"
@@ -23,4 +22,58 @@
     hideHighlightOnSelectedWord: true
   "file-icons":
     coloured: false
-  "autocomplete-plus": {}
+  "autocomplete-plus":
+    confirmCompletion: "tab"
+  whitespace: {}
+  "one-dark-ui":
+    layoutMode: "Compact"
+  "vim-mode":
+    useClipboardAsDefaultRegister: true
+  react: {}
+  "tree-view": {}
+  pigments: {}
+  "git-projects":
+    rootPath: "~/Development"
+    sortBy: "Latest modification date"
+  "git-plus": {}
+  "autocomplete-elixir":
+    elixirPath: "/usr/local/bin/elixir"
+  script:
+    enableExecTime: false
+  "autoclose-html":
+    forceInline: [
+      "h1"
+      "h2"
+      "h3"
+      "h4"
+      "h5"
+      "h6"
+      "li"
+    ]
+  "highlight-column": {}
+  jumpy:
+    fontSize: 1
+    highContrast: true
+  "git-history": {}
+  linter: {}
+  "linter-scss-lint":
+    executablePath: "/Users/kami/.rbenv/shims/scss-lint"
+  "linter-slim":
+    rails: true
+    executableDir: "/Users/kami/.rbenv/shims/slimrb"
+  "linter-rubocop":
+    command: "/Users/kami/.rbenv/shims/rubocop"
+".js.jsx.source":
+  editor:
+    preferredLineLength: 80
+".coffee.jsx.source":
+  editor:
+    preferredLineLength: 80
+".diff.source":
+  editor:
+    preferredLineLength: 80
+".slim.text":
+  editor:
+    preferredLineLength: 80
+  whitespace:
+    removeTrailingWhitespace: true

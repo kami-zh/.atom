@@ -8,6 +8,8 @@
  * http://www.lesscss.org
  */
 
+@import 'syntax-variables';
+
 .tree-view {
 
 }
@@ -22,4 +24,12 @@
 
 .deprecation-cop-status {
   display: none !important;
+}
+
+atom-text-editor,
+atom-text-editor::shadow  {
+  .highlight-column {
+    opacity: 1 !important;
+    background-color: @syntax-cursor-line;
+  }
 }

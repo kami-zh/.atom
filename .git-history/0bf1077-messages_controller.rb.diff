@@ -1,0 +1,34 @@
+diff --git a/app/controllers/messages_controller.rb b/app/controllers/messages_controller.rb
+index b07f253..677a3c0 100644
+--- a/app/controllers/messages_controller.rb
++++ b/app/controllers/messages_controller.rb
+@@ -1,27 +1,29 @@
+ class MessagesController < ApplicationController
+   before_action :authenticate_user!
+ 
+   layout false
+ 
++  # GET /messages/new
+   def new
+     @message = Message.new(to_user_id: params[:to_user_id])
+   end
+ 
++  # POST /messages
+   def create
+     message = current_user.sent_messages.new(message_params)
+ 
+     if message.save
+       flash[:notice] = t('.success')
+ 
+       head :ok
+     else
+       render status: :bad_request, json: { errors: message.errors.full_messages }
+     end
+   end
+ 
+   private
+ 
+   def message_params
+     params.require(:message).permit(:to_user_id, :content)
+   end
+ end

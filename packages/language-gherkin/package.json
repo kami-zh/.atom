@@ -1,12 +1,16 @@
 {
   "name": "language-gherkin",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Gherkin language support for Atom",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gigapixel/atom-language-gherkin"
+    "url": "git+https://github.com/gigapixel/atom-language-gherkin.git"
   },
   "license": "MIT",
+  "files": [
+    "grammars",
+    "settings"
+  ],
   "engines": {
     "atom": ">=0.50.0"
   },
@@ -16,11 +20,11 @@
   "bugs": {
     "url": "https://github.com/gigapixel/atom-language-gherkin/issues"
   },
-  "homepage": "https://github.com/gigapixel/atom-language-gherkin",
-  "_id": "language-gherkin@1.0.1",
-  "_shasum": "5349e81edb3a585bf77bf4fc90ac35b863a4588b",
-  "_resolved": "file:../d-115221-11072-185m7rn/package.tgz",
-  "_from": "../d-115221-11072-185m7rn/package.tgz",
+  "homepage": "https://github.com/gigapixel/atom-language-gherkin#readme",
+  "_id": "language-gherkin@1.0.3",
+  "_shasum": "34df7bb7d22af8aa1396ecd7a6e6edbda6e060b4",
+  "_resolved": "file:../d-11592-3678-i9yy4c/package.tgz",
+  "_from": "../d-11592-3678-i9yy4c/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [],
