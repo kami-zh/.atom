@@ -1,3 +1,5 @@
+/.apm
+/.git-history
 /.node-gyp
 /compile-cache
 /storage

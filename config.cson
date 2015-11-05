@@ -55,7 +55,8 @@
     fontSize: 1
     highContrast: true
   "git-history": {}
-  linter: {}
+  linter:
+    lintOnFly: false
   "linter-scss-lint":
     executablePath: "/Users/kami/.rbenv/shims/scss-lint"
   "linter-slim":
@@ -63,13 +64,10 @@
     executableDir: "/Users/kami/.rbenv/shims/slimrb"
   "linter-rubocop":
     command: "/Users/kami/.rbenv/shims/rubocop"
-".js.jsx.source":
-  editor:
-    preferredLineLength: 80
 ".coffee.jsx.source":
   editor:
     preferredLineLength: 80
-".diff.source":
+".js.jsx.source":
   editor:
     preferredLineLength: 80
 ".slim.text":
@@ -77,3 +75,6 @@
     preferredLineLength: 80
   whitespace:
     removeTrailingWhitespace: true
+".diff.source":
+  editor:
+    preferredLineLength: 80
