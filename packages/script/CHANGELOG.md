@@ -1,3 +1,24 @@
+## 3.5.1
+
+* Temporarily remove a `Cake[file]` support cause of bugs
+
+## 3.5.0
+
+* Visual updates to the options view
+* Support prolog
+* Support `Cake[file]`
+* Improved selection based support for Perl
+* Small bug fixes all over
+* We promise to lint and have some sanity around :coffee:script
+* New profiles mode!
+
+## 3.0.2
+
+* Fix when stdin is coming on in (still doesn't accept it, but it also doesn't act wild)
+* JXA language support fixed
+* Support for Postgres
+* Selection based support for Octave
+
 ## 3.0.1
 
 * Quick doc updates
