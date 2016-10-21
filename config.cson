@@ -1,6 +1,14 @@
 "*":
+  Zen:
+    fullscreen: false
+    softWrap: true
+  "atom-beautify":
+    general:
+      _analyticsUserId: "8d8e2539-53b5-46f1-af03-a972351bea26"
   "autoclose-html":
     forceInline: [
+      "dt"
+      "dd"
       "h1"
       "h2"
       "h3"
@@ -8,17 +16,32 @@
       "h5"
       "h6"
       "li"
+      "th"
+      "td"
     ]
   "autocomplete-elixir":
     elixirPath: "/usr/local/bin/elixir"
   "autocomplete-plus":
     confirmCompletion: "tab"
   core:
+    customFileTypes:
+      "source.ini": [
+        ".buckconfig"
+        ".flowconfig"
+      ]
+      "source.json": [
+        ".arcconfig"
+        "BUCK.autodeps"
+      ]
+      "source.python": [
+        "BUCK"
+      ]
     disabledPackages: [
       "welcome"
       "feedback"
       "background-tips"
-      "linter-scss-lint"
+      "linter"
+      "language-gfm"
     ]
   editor:
     fontSize: 11
@@ -29,6 +52,8 @@
     userId: "1a44d2a6-223b-b9f5-9929-33680031ed6f"
   "file-icons":
     coloured: false
+  "file-watcher":
+    promptWhenFileHasChangedOnDisk: false
   "git-history": {}
   "git-plus": {}
   "git-projects":
@@ -42,6 +67,9 @@
     highContrast: true
   linter:
     lintOnFly: false
+  "linter-eslint":
+    globalNodePath: "/usr/local"
+    useGlobalEslint: true
   "linter-rubocop":
     command: "/Users/kami/.rbenv/shims/rubocop"
   "linter-scss-lint":
@@ -49,16 +77,44 @@
   "linter-slim":
     executableDir: "/Users/kami/.rbenv/shims/slimrb"
     rails: true
+  "markdown-preview":
+    liveUpdate: false
   metrics:
     userId: "5fc3849e4052ae4eae91b35fe942d9213e9c049d"
+  minimap:
+    plugins:
+      cursorline: true
+      cursorlineDecorationsZIndex: 0
+      "find-and-replace": true
+      "find-and-replaceDecorationsZIndex": 0
+      "git-diff": true
+      "git-diffDecorationsZIndex": 0
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
+      pigments: true
+      pigmentsDecorationsZIndex: 0
+      selection: true
+      selectionDecorationsZIndex: 0
+  nuclide:
+    "nuclide-flow":
+      warnOnNotInstalled: false
   "one-dark-ui":
     layoutMode: "Compact"
+    tabSizing: "Even"
   pigments: {}
+  "platformio-ide-terminal":
+    style: {}
   react: {}
   "release-notes":
     viewedVersion: "0.95.0"
   script:
     enableExecTime: false
+  "split-diff":
+    diffWords: true
+    ignoreWhitespace: true
+    leftEditorColor: "red"
+    rightEditorColor: "green"
+    syncHorizontalScroll: true
   "tree-view": {}
   "vim-mode":
     useClipboardAsDefaultRegister: true
